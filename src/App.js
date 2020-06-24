@@ -4,7 +4,7 @@ import { addSearchTerm } from "./actions";
 import SearchBar from "./components/SearchBar";
 import PostsList from "./components/PostsList";
 
-const baseUrl = `http://hn.algolia.com/api/v1/search?query=`;
+const baseUrl = `https://hn.algolia.com/api/v1/search?query=`;
 const DEFAULT_HITS = 20;
 
 function App() {
