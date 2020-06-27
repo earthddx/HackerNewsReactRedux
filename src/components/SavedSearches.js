@@ -18,7 +18,7 @@ export default function SavedSearches() {
 
   return (
     <div style={{ display: "flex" }}>
-      <p>Previous search:</p>
+      <p>Search history:</p>
       {searchKey &&
         searchKey.map((key, id) => (
           <Paper className={classes.root} key={id}>

@@ -9,7 +9,7 @@ const DEFAULT_HITS = 20;
 
 function App() {
   const [posts, setPosts] = useState([]);
-  const [query, setQuery] = useState('');
+  const [query, setQuery] = useState("");
   const [page, setPage] = useState(0);
   const dispatch = useDispatch();
 
@@ -19,6 +19,7 @@ function App() {
     );
     const data = await response.json();
     setPosts(data);
+    console.log(data);
     dispatch(addSearchTerm(query));
   }
 
@@ -28,7 +29,7 @@ function App() {
 
   return (
     <div>
-      <SearchBar query={query} setQuery={setQuery} getData={getData} />
+      <SearchBar query={query} setQuery={setQuery} getData={getData} setPage={setPage}/>
       <PostsList posts={posts} page={page} setPage={setPage} />
     </div>
   );

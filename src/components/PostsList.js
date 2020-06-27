@@ -22,27 +22,32 @@ export default function PostsList({ posts, setPage, page }) {
             marginRight: 100,
           }}
         >
-          {posts.hits.map((post, id) => (
-            <Post post={post} key={id} />
-          ))}
+          {posts.hits.map(
+            (post, id) =>
+              post.title && post.url && <Post post={post} key={id} />
+          )}
         </div>
       ) : (
-        <p>loading...</p>
+        <div style={{ display: "flex", justifyContent: "center" }}>
+          <p>loading...</p>
+        </div>
       )}
-      <div style={{ display: "flex", marginLeft: 100, marginTop:30 }}>
+      <div style={{ display: "flex", marginLeft: 100, marginTop: 30 }}>
         {page ? (
           <div>
-          <Button variant="contained" onClick={handlePrevButton}>
-            Prev
-          </Button>
+            <Button variant="contained" onClick={handlePrevButton}>
+              Prev
+            </Button>
           </div>
         ) : null}
-        <div style={{marginLeft:10}}>
-        <Button variant="contained" onClick={handleNextButton}>
-          Next
-        </Button>
-        </div>
-        <p style={{marginLeft: 20}}>page {page + 1}</p>
+        {posts.nbHits ? (
+          <div style={{ marginLeft: 10 }}>
+            <Button variant="contained" onClick={handleNextButton}>
+              Next
+            </Button>
+          </div>
+        ) : null}
+        <p style={{ marginLeft: 20 }}>page {page + 1}</p>
       </div>
     </div>
   );

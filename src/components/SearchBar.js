@@ -56,7 +56,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SearchBar({ query, setQuery, getData }) {
+export default function SearchBar({ query, setQuery, getData, setPage }) {
   const classes = useStyles();
   return (
     <div className={classes.root}>
@@ -79,13 +79,13 @@ export default function SearchBar({ query, setQuery, getData }) {
           </div>
         </Toolbar>
         <div className={classes.button}>
-          <Button variant="contained" color="primary" onClick={getData}>
+          <Button variant="contained" color="primary" onClick={getData} >
             Search
           </Button>
         </div>
       </div>
       <div className={classes.savedSearches}>
-        <SavedSearches />
+        <SavedSearches/>
       </div>
     </div>
   );
